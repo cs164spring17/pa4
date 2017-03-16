@@ -34,6 +34,7 @@ decl: iden ':' type '=' expr;
 exprseq: expr (';' expr)*;
 
 type: ID
+    | 'null'
     | '(' ')' '->' type
     | '(' type ')' '->' type
     ;
