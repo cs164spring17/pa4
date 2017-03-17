@@ -10,6 +10,8 @@ import atrai.interpreters.common.Environment;
 import atrai.interpreters.common.Interpreter;
 import atrai.interpreters.common.SemanticException;
 
+import java.util.Objects;
+
 import static atrai.interpreters.common.DynamicTypeChecker.e;
 import static atrai.interpreters.common.DynamicTypeChecker.s;
 
@@ -64,13 +66,7 @@ class FunctionTypeValue extends TypeValue {
             return false;
         }
         FunctionTypeValue other = (FunctionTypeValue) obj;
-        if (argType == null && other.argType == null) return true;
-        if (argType == null) return false;
-        if (other.argType == null) return false;
-        if (!returnType.equals(other.returnType)) return false;
-        if (!argType.equals(other.argType)) return false;
-
-        return true;
+      	return Objects.equals(argType, other.argType) && Objects.equals(returnType, other.returnType);
     }
 
     @Override
